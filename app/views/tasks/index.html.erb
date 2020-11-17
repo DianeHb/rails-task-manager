@@ -2,8 +2,14 @@
 
 <ul>
   <% @tasks.each do |task| %>
-    <li><input type="checkbox" <%=checked(task)%> disabled><%= link_to(task.title, task_path(task))%></li>
+    <li>
+      <input type="checkbox" <%=checked(task)%> disabled>
+      <%= link_to(task.title, task_path(task))%>
+      <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <%= fa_icon "trash"  %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
-<%= link_to  "Add a new Task", new_task_path %>
+<%= link_to  "+ Add a new Task", new_task_path %>

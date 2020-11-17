@@ -1,8 +1,10 @@
-<h1>New task</h1>
+<h1>Edit task</h1>
 
 <%= simple_form_for (@task) do |f| %>
   <%= f.input :title %>
   <%= f.input :details %>
+  <%= f.check_box :completed %>
+  <%= f.label :completed %>
   <%= f.submit %>
 <% end %>
 
